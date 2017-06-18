@@ -60,10 +60,10 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             DICTATOR: {
                 timer: settings.bidTime,
                 cb: function() {
-                    var button, offer, div;
+                    var button, offer;
 
                     // Make the dictator display visible.
-                    div = W.getElementById('dictator').style.display = '';
+                    W.getElementById('dictator').style.display = '';
                     button = W.getElementById('submitOffer');
                     offer =  W.getElementById('offer');
 
@@ -92,10 +92,10 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             },
             OBSERVER: {
                 cb: function() {
-                    var span, div, dotsObj;
+                    var span, dotsObj;
 
                     // Make the observer display visible.
-                    div = W.getElementById('observer').style.display = '';
+                    W.getElementById('observer').style.display = '';
                     span = W.getElementById('dots');
                     dotsObj = W.addLoadingDots(span);
 
