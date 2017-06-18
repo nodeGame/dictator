@@ -110,11 +110,17 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                     W.show('observer');
                     W.hide('dictator');
 
+                    // Clear previous choices.
+                    W.setInnerHTML('waitingFor',
+                                   'Waiting for the decision of the dictator');
+                    W.setInnerHTML('decision', '');
+
                     span = W.getElementById('dots');
                     dotsObj = W.addLoadingDots(span);
 
                     node.on.data('decision', function(msg) {
                         dotsObj.stop();
+                        span.innerHTML = '';
                         W.setInnerHTML('waitingFor', 'Decision arrived: ');
                         W.setInnerHTML('decision',
                                        'The dictator offered: ' +
