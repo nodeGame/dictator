@@ -13,11 +13,6 @@
 
 "use strict";
 
-var ngc = require('nodegame-client');
-var stepRules = ngc.stepRules;
-var constants = ngc.constants;
-var publishLevels = constants.publishLevels;
-
 module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
     var game;
