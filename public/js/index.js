@@ -14,23 +14,20 @@ window.onload = function() {
     // All these properties will be overwritten
     // by remoteSetup from server.
     node.setup('nodegame', {
-        verbosity: 100,
-        debug : true,
-        window : {
-            promptOnleave : false
+        verbosity: 0,
+        debug: true,
+        window: {
+            promptOnleave: false
         },
-        env : {
-            auto : false,
-            debug : false
-        },
-        events : {
-            dumpEvents : true
+        events: {
+            dumpEvents : false
         },
         socket : {
             type : 'SocketIo',
             reconnection : false
         }
     });
+
     // Connect to channel.
     node.connect();
 };

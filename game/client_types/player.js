@@ -25,7 +25,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
         // Bid is valid if it is a number between 0 and 100.
         this.isValidBid = function(n) {
-            return node.JSUS.isInt(n, -1, 101);
+            return node.JSUS.isInt(n, 0, 100);
         };
 
         this.randomOffer = function(offer, submitOffer) {
@@ -60,14 +60,25 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             DICTATOR: {
                 timer: settings.bidTime,
                 cb: function() {
-                    var button, offer;
+                    var button, offer, errDiv;
+                    console.log('DICTATOR');
 
                     // Make the dictator display visible.
-                    W.getElementById('dictator').style.display = '';
+                    W.hide('observer');
+                    W.show('dictator');
+
+                    // Clear error div.
+                    errDiv = W.getElementById('errdiv');
+                    errDiv.innerHTML = '';
+
+                    // Prepare listeners.
                     button = W.getElementById('submitOffer');
                     offer =  W.getElementById('offer');
 
-                    // Listen on click event.
+                    // Clear offer commands.
+                    button.disabled = false;
+                    offer.value = '';
+
                     button.onclick = function() {
                         var decision;
 
@@ -75,7 +86,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                         decision = node.game.isValidBid(offer.value);
                         if ('number' !== typeof decision) {
                             W.writeln('Please enter a number between ' +
-                                      '0 and 100.');
+                                      '0 and 100.', errDiv);
                             return;
                         }
                         button.disabled = true;
@@ -93,9 +104,12 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             OBSERVER: {
                 cb: function() {
                     var span, dotsObj;
+                    console.log('OBSERVER');
 
                     // Make the observer display visible.
-                    W.getElementById('observer').style.display = '';
+                    W.show('observer');
+                    W.hide('dictator');
+
                     span = W.getElementById('dots');
                     dotsObj = W.addLoadingDots(span);
 
