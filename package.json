@@ -1,8 +1,8 @@
 {
     "name": "dictator",
-    "version": "0.0.1",
-    "description": "This is a nodeGame game",
+    "version": "4.0.0",
+    "description": "Dictator game for nodeGame",
     "author": "Stefano Balietti <ste@nodegame.org>",
-    "license": "MIT/X11",
+    "license": "MIT",
     "homepage": "http://nodegame.org"
 }
