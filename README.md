@@ -1,6 +1,6 @@
 # Dictator Game for nodeGame
 
-Rules of dictator game available [here](https://en.wikibooks.org/wiki/Bestiary_of_Behavioral_Economics/Dictator_Game).
+Rules of Dictator game available [here](https://en.wikibooks.org/wiki/Bestiary_of_Behavioral_Economics/Dictator_Game).
 
 ## Installation
 
