@@ -314,5 +314,7 @@ module.exports = {
      *
      * Disconnect a client if not selected for a game when dispatching
      */
-    DISCONNECT_IF_NOT_SELECTED: false
+    DISCONNECT_IF_NOT_SELECTED: false,
+    
+    PLAY_WITH_BOT_OPTION: true
 };
