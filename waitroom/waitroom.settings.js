@@ -316,5 +316,5 @@ module.exports = {
      */
     DISCONNECT_IF_NOT_SELECTED: false,
     
-    PLAY_WITH_BOT_OPTION: true
+    ALLOW_PLAY_WITH_BOTS: true
 };

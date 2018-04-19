@@ -2,7 +2,14 @@
   "name": "dictator-game",
   "channelName": "dictator",
   "version": "4.0.0",
+<<<<<<< HEAD
   "description": "Dictator game for nodeGame",
+=======
+  "url": "https://github.com/nodeGame/dictator",
+  "wiki": "https://en.wikibooks.org/wiki/Bestiary_of_Behavioral_Economics/Dictator_Game",
+  "icon": "accessibility",
+  "description": "Dictator: one player decides for both",
+>>>>>>> 8349045f6b01b69f656861fd96c38885b5e84f69
   "author": "Stefano Balietti <ste@nodegame.org> (stefanobalietti.com)",
   "license": "MIT",
   "main": "public/index.htm",
