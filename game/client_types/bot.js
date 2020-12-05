@@ -21,7 +21,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             id = stepObj.id;
             node = this.node;
 
-            node.timer.randomDone(2000);
+            node.timer.random(2000).done();
         };
         return o;
     });
@@ -30,14 +30,14 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
         roles: {
             OBSERVER: {
                 cb: function() {
-                    this.node.timer.randomDone();
+                    this.node.timer.random.done();
                 }
             },
             DICTATOR: {
                 cb: function() {
                     var node = this.node;
                     node.on('PLAYING', function() {
-                        node.timer.randomExec(function() {
+                        node.timer.random.exec(function() {
                             node.done({
                                 offer: J.randomInt(-1,100)
                             });
