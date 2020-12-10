@@ -63,7 +63,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 // TODO: Adapt to specific steps.
                 // if (id === XXX) ...
 
-                node.timer.randomDone(2000);
+                node.timer.random(2000).done();
             };
         }
         return o;
