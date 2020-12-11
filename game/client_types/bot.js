@@ -6,20 +6,20 @@
  * http://www.nodegame.org
  * ---
  */
-var ngc = require('nodegame-client');
-var J = ngc.JSUS;
+const ngc = require('nodegame-client');
+const J = ngc.JSUS;
 
 module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
-    var channel = gameRoom.channel;
-    var logic = gameRoom.node;
+    let channel = gameRoom.channel;
+    let logic = gameRoom.node;
 
     stager.extendAllSteps(function(o) {
         o.cb = function() {
-            var node, stepObj, id;
-            stepObj = this.getCurrentStepObj();
-            id = stepObj.id;
-            node = this.node;
+            let node, stepObj, id;
+                stepObj = this.getCurrentStepObj();
+                id = stepObj.id;
+                node = this.node;
 
             node.timer.random(2000).done();
         };
@@ -35,7 +35,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             },
             DICTATOR: {
                 cb: function() {
-                    var node = this.node;
+                    let node = this.node;
                     node.on('PLAYING', function() {
                         node.timer.random.exec(function() {
                             node.done({
