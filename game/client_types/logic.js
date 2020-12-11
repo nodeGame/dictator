@@ -9,16 +9,16 @@
 
 "use strict";
 
-var ngc = require('nodegame-client');
-var stepRules = ngc.stepRules;
-var constants = ngc.constants;
-var J = ngc.JSUS;
-var counter = 0;
+const ngc = require('nodegame-client');
+const stepRules = ngc.stepRules;
+const constants = ngc.constants;
+const J = ngc.JSUS;
+let counter = 0;
 
 module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
-    var node = gameRoom.node;
-    var channel =  gameRoom.channel;
+    let node = gameRoom.node;
+    let channel =  gameRoom.channel;
 
     // Increment counter.
     counter = counter ? ++counter : settings.SESSION_ID || 1;
@@ -38,8 +38,8 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
         },
         cb: function() {
             node.once.data('done', function(msg) {
-                var offer, observer;
-                offer = msg.data.offer;
+                 var offer, observer;
+                 offer = msg.data.offer;
 
                 // Validate incoming offer.
                 if (false === J.isInt(offer, 0, 100)) {
@@ -50,7 +50,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                     msg.data.originalOffer = offer;
                 }
 
-                observer = node.game.matcher.getMatchFor(msg.from);
+                 observer = node.game.matcher.getMatchFor(msg.from);
                 // Send the decision to the other player.
                 node.say('decision', observer, msg.data.offer);
 
