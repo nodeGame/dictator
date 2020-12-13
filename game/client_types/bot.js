@@ -9,7 +9,7 @@
 const ngc = require('nodegame-client');
 const J = ngc.JSUS;
 
-module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
+module.exports = function(treatmentName, settings, stager, setup, gameRoom, node) {
 
     let channel = gameRoom.channel;
     let logic = gameRoom.node;
@@ -30,7 +30,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
         roles: {
             OBSERVER: {
                 cb: function() {
-                    this.node.timer.random.done();
+                    node.timer.random.done();
                 }
             },
             DICTATOR: {
