@@ -16,10 +16,9 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom, node
 
     stager.extendAllSteps(function(o) {
         o.cb = function() {
-            let node, stepObj, id;
-                stepObj = this.getCurrentStepObj();
-                id = stepObj.id;
-                node = this.node;
+            let stepObj = this.getCurrentStepObj();
+            let id = stepObj.id;
+            let node = this.node;
 
             node.timer.random(2000).done();
         };
