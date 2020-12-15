@@ -18,7 +18,6 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom, node
         o.cb = function() {
             let stepObj = this.getCurrentStepObj();
             let id = stepObj.id;
-            let node = this.node;
 
             node.timer.random(2000).done();
         };
@@ -34,7 +33,6 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom, node
             },
             DICTATOR: {
                 cb: function() {
-                    let node = this.node;
                     node.on('PLAYING', function() {
                         node.timer.random.exec(function() {
                             node.done({
