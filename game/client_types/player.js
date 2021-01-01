@@ -15,36 +15,31 @@
 
 module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
-    var game;
-
     stager.setOnInit(function() {
 
         // Initialize the client.
 
-        var header, frame;
+        var header;
 
         // Bid is valid if it is a number between 0 and 100.
         this.isValidBid = function(n) {
-            return node.JSUS.isInt(n, 0, 100);
+            return J.isInt(n, 0, 100);
         };
 
         this.randomOffer = function(offer, submitOffer) {
             var n;
-            n = JSUS.randomInt(-1,100);
+            n = J.randomInt(-1,100);
             offer.value = n;
             submitOffer.click();
         };
 
         // Setup page: header + frame.
         header = W.generateHeader();
-        frame = W.generateFrame();
+        W.generateFrame();
 
         // Add widgets.
-        this.visualRound = node.widgets.append('VisualRound', header, {
-            title: false
-        });
+        this.visualRound = node.widgets.append('VisualRound', header);
         this.visualTimer = node.widgets.append('VisualTimer', header);
-
         this.doneButton = node.widgets.append('DoneButton', header);
 
         // Additional debug information while developing the game.
@@ -84,6 +79,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                     button.onclick = function() {
                         var decision;
 
+                        // TODO: Validation outdated, use CustomInput widget.
                         // Validate offer.
                         decision = node.game.isValidBid(offer.value);
                         if ('number' !== typeof decision) {
@@ -128,7 +124,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                        'The dictator offered: ' +
                                        msg.data + ' ECU.');
 
-                        node.timer.randomDone();
+                        node.timer.random.done();
                     });
                 }
             }
@@ -142,8 +138,4 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             node.game.visualTimer.setToZero();
         }
     });
-
-    game = setup;
-    game.plot = stager.getState();
-    return game;
 };

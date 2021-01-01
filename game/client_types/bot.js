@@ -14,14 +14,8 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom, node
     let channel = gameRoom.channel;
     let logic = gameRoom.node;
 
-    stager.extendAllSteps(function(o) {
-        o.cb = function() {
-            let stepObj = this.getCurrentStepObj();
-            let id = stepObj.id;
-
-            node.timer.random(2000).done();
-        };
-        return o;
+    stager.setDefaultCallback(function() {
+        node.timer.random.done();
     });
 
     stager.extendStep('game', {
@@ -34,10 +28,8 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom, node
             DICTATOR: {
                 cb: function() {
                     node.on('PLAYING', function() {
-                        node.timer.random.exec(function() {
-                            node.done({
-                                offer: J.randomInt(-1,100)
-                            });
+                        node.timer.random.done({
+                            offer: J.randomInt(-1,100)
                         });
                     });
                 }

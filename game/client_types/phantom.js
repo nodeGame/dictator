@@ -6,9 +6,9 @@
  * http://www.nodegame.org
  * ---
  */
-var ngc = require('nodegame-client');
-var stepRules = ngc.stepRules;
-var constants = ngc.constants;
+const ngc = require('nodegame-client');
+const stepRules = ngc.stepRules;
+const constants = ngc.constants;
 
 module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 

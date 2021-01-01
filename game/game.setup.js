@@ -13,13 +13,9 @@
  */
 module.exports = function(settings, stages) {
 
-    var setup;
-    setup = {};
-
+    let setup = {};
     setup.debug = true;
-
     setup.verbosity = 1;
-
     setup.window = {
         promptOnleave: !setup.debug
     };
